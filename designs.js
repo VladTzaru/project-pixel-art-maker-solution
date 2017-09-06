@@ -1,4 +1,5 @@
 $(function() {
+  'use strict';
 
 
   /*------------ PIXEL MODEL ------------*/
@@ -12,17 +13,10 @@ $(function() {
     getWidth() {return $('#input_width').val()},
     getHeight() {return $('#input_height').val()},
     setColor() {
-      let colorPicker = $('#colorPicker');
-      let selectedColor;
-      $(colorPicker).change(function() {
-        selectedColor = pixelController.getColor();
-        return selectedColor;
-      });
+      let colorEl = $('#colorPicker');
+      return colorEl.val();
     }
   };
-
-  pixelController.setColor();
-
 
   /*------------ PIXEL VIEW ------------*/
   const pixelView = {
@@ -39,10 +33,9 @@ $(function() {
         // Get current input values
         let width = pixelController.getWidth();
         let height = pixelController.getHeight();
-        let defaultColor = pixelController.getColor();
 
 
-        // Iterate and append each element
+        // Iterate and append newly created elements
         for (let row = 0; row < height; row++) {
           let trEl = $('<tr></tr>');
 
@@ -50,15 +43,13 @@ $(function() {
             let tdEl = $('<td></td>');
             $(trEl).append(tdEl);
 
+            // Eventlistener that handles background-color of each pixel
             $(tdEl).click(function() {
-              tdEl.css('background-color', selectedColor);
+              tdEl.css('background-color', pixelController.setColor());
             });
           }
           $(canvasEl).append(trEl);
         }
-
-        let selectedColor = pixelController.setColor();
-
 
       }
 
@@ -72,9 +63,6 @@ $(function() {
   };
 
 
-
   /*------------ INVOKE METHODS ------------*/
   pixelController.init();
-
-
 });
