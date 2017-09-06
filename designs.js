@@ -1,3 +1,4 @@
+/*------------ PIXEL MODEL ------------*/
 const pixelModel = {
   // Select color input
   selectedColor: $('#colorPicker').val(),
@@ -6,12 +7,25 @@ const pixelModel = {
   selectedHeight: $('#input_height').val()
 };
 
-console.log(pixelModel.selectedColor, pixelModel.selectedWidth, pixelModel.selectedHeight);
+
+/*------------ PIXEL CONTROLLER ------------*/
+const pixelController = {
+  getColor() {return pixelModel.selectedColor},
+  getWidth() {return pixelModel.selectedWidth},
+  getHeight() {return pixelModel.selectedHeight}
+};
 
 
-const pixelController = {};
+/*------------ PIXEL VIEW ------------*/
+const pixelView = {
+  init() {
 
-const pixelView = {};
+  },
+
+  render () {
+
+  }
+};
 
 // When size is submitted by the user, call makeGrid()
 
