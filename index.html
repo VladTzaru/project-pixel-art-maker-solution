@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Pixel Art Maker!</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Lab: Pixel Art Maker</h1>
+   <head>
+      <title>Pixel Art Maker!</title>
 
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        <label for="grid height">Grid Height:</label>
-        <input type="number" id="input_height" name="height" required min="1" max="40" value="1">
-        <label for="grid width">Grid Width:</label>
-        <input type="number" id="input_width" name="width" required min="1" max="40" value="1">
-        <input id="input_submit" type="submit">
-    </form>
+      <!-- Styles & Fonts -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+      <link rel="stylesheet" href="styles.css">
 
-    <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker">
+   </head>
+   <body>
+      <h1>Lab: Pixel Art Maker</h1>
+      <h2>Choose Grid Size</h2>
 
-    <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
+      <form id="sizePicker">
+         <label for="grid height">Grid Height:</label>
+         <input type="number" id="input_height" name="height" required min="1" max="40" value="1">
+         <label for="grid width">Grid Width:</label>
+         <input type="number" id="input_width" name="width" required min="1" max="40" value="1">
+         <input id="input_submit" type="submit">
+      </form>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
-    <script src="designs.js"></script>
-</body>
+      <h2>Pick A Color</h2>
+      <input type="color" id="colorPicker">
+
+      <h2>Design Canvas</h2>
+      <table id="pixel_canvas"></table>
+
+      <!-- Scripts -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+      <script src="designs.js"></script>
+   </body>
 </html>
