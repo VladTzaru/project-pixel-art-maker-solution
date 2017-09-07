@@ -6,7 +6,6 @@ $(function() {
     const canvasEl = $('#pixel_canvas');
     const sizePickerEl = $('#sizePicker');
 
-
     // Set color
     function setColor() {
         const colorVal = $('#colorPicker').val();
