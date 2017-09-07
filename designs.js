@@ -2,43 +2,49 @@ $(function() {
     'use strict';
 
     // DOM pointers
-    const canvasEl  = $('#pixel_canvas');
-    const submitBtn = $('#input_submit');
+    const canvasEl      = $('#pixel_canvas');
+    const submitBtn     = $('#input_submit');
+    const sizePickerEl  = $('#sizePicker');
 
 
     // Set color
     function setColor() {
-        let colorVal = $('#colorPicker').val();
+        const colorVal = $('#colorPicker').val();
         return colorVal;
+    }
+
+    // Delete grid
+    function deleteGrid () {
+        $(canvasEl).empty();
     }
 
     // Create grid
     function makeGrid() {
 
-        // Get current input values
-        let width  = $('#input_width').val();
-        let height = $('#input_height').val();
+        deleteGrid();
 
-        // Iterate and append newly created elements
-        for (let row = 0; row < height; row++) {
-            let trEl = $('<tr></tr>');
+        const width = $('#input_width').val();
+        const height = $('#input_height').val();
 
-            for (let col = 0; col < width; col++) {
-                let tdEl = $('<td></td>');
-                $(trEl).append(tdEl);
+        for (let r = 0; r < width; r++) {
+          const row = $('<tr></tr>');
+          for (let c = 0; c < height; c++) {
+            const cell = $('<td></td>')
+            $(row).append(cell);
 
-                // Event listener that sets background-color for each pixel
-                $(tdEl).click(function() {
-                    tdEl.css('background-color', setColor());
-                });
-            }
-            $(canvasEl).append(trEl);
+            // Event listener that sets background-color for each pixel
+            $(cell).click(function() {
+                cell.css('background-color', setColor());
+            });
+          }
+          $(canvasEl).append(row);
+
         }
-    }
+      }
 
-    // Event listener that invokes makeGrid() function
-    $(submitBtn).click(function() {
+      // Event listener that invokes makeGrid() function
+      sizePickerEl.on('submit', function(e) {
+        e.preventDefault();
         makeGrid();
-        return false;
-    });
+      });
 });
